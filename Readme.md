@@ -144,11 +144,11 @@ Your payment information will be sent to the Payper Widget via JSON payload.
 
 |  Paramater | Description | Type | Requirement | 
 | --- | --- | --- | --- |
-|  | <b>Account Information</b> |
+| <b>Account Information</b> |
 | ``sid_info`` | Array of SID information | <i>array</i> | <b>required</b> |
 | ``sid`` | sid number provided by Payper. e.g. ``123`` | <i>integer</i> | <b>required</b> |
 | ``type`` | description of sid level ``standard`` or ``enhanced`` | <i>string</i> | <b>required</b>
-|  | <b>Customer Information</b> |
+| <b>Customer Information</b> |
 | ``first_name`` | Customer's first name | <i>string</i> | <b>required</b>
 | ``last_name`` | Customer's last name | <i>string</i>  | <b>required</b>
 | ``email`` | Customer's email address | <i>string</i> | <b>required</b>
@@ -162,9 +162,9 @@ Your payment information will be sent to the Payper Widget via JSON payload.
 | ``zip_code`` | Customer's Zip/Postal Code | <i>string</i> | <b>required</b> |
 |  | <i>USA customers: 5-digit ZIP code (eg. "12345")</i> |
 |  | <i>Canadian customers: 6-character alphanumeric postal code (eg. "A1A 1A1")</i> |
-|  | <b>Merchant URLs</b> |
+| <b>Merchant URLs</b> |
 | ``return_url`` | The URL to return the customer to after processing | <i>string</i> | <b>required</b>
-|  | <b>Cart Information</b> |
+|  <b>Cart Information</b> |
 | ``items`` | array of unit_price, quantity, name | <i>array</i> | <b>required</b>
 | ``unit_price`` | The amount that you want to charge per unit, e.g. 10.00 if you would want to charge $10.00 per unit | <i>decimal</i> | <b>required</b>
 | ``quantity`` | The number of units purchased | <i>integer</i> | <b>required</b>
@@ -178,55 +178,29 @@ Your payment information will be sent to the Payper Widget via JSON payload.
 
 ## Interac e-Transfer (Deposit/Payment)
 
-| Action | Description |
+| Action/Status | Description |
 |---|---|
-|   | <b>Initial Combinations:</b> |
-| Action: ``PENDING`` | Transaction request has been received, waiting for customer to complete.
-| Status: ``APPROVED`` |
-|
-| Action: ``PENDING`` | Transaction has been declined.
-| Status: ``DECLINED`` |
-|
-| Action: ``PENDING`` | Transaction has not been received successfully.
-| Status: ``PENDING`` |
-|
-| Action: ``PENDING`` | An error has occurred. |
-| Status: ``PAYG_ERROR`` |
-|
-|   | <b>Final Combinations:</b> |
-| Action: ``PAYMENT`` | Payment is successful, fulfill product. |
-| Status: ``APPROVED`` |
-|
-| Action: ``PAYMENT`` | Payment has been declined. |
-| ``Status: DECLINED`` |
-|
-|   | <b>Follow-up Combinations:</b> |
-| ``Action: PAYMENT`` | Interac has initiated a return/reversal. |
-| ``Status: RETURNED`` |
-|
-| Action: ``CHARGEBACK`` | Customer has initiated a chargeback. |
-| Status: ``APPROVED`` | 
-|
-| Action: ``REFUND`` | Refund request received. |
-| Status: ``PENDING`` |
-|
-| Action: ``REFUND`` | Refund has been approved. |
-| Status: ``APPROVED`` |
-|
-| Action: ``REFUND`` | Refund has been declined.
-| Status: ``DECLINED`` |
+| <b>Initial Combinations:</b> |  |
+| Action: ``PENDING``  Status: ``APPROVED``| Transaction request has been received, waiting for customer to complete. |
+| Action: ``PENDING`` Status: ``DECLINED``| Transaction has been declined.|
+| Action: ``PENDING`` Status: ``PENDING`` | Transaction has not been received successfully.|
+| Action: ``PENDING`` Status: ``PAYG_ERROR`` | An error has occurred. | |
+|  <b>Final Combinations:</b> |  |
+| Action: ``PAYMENT`` Status: ``APPROVED``| Payment is successful, fulfill product. |
+| Action: ``PAYMENT`` Status:  ``DECLINED``| Payment has been declined. |
+|  <b>Follow-up Combinations:</b> |  |
+| ``Action: PAYMENT`` Status: ``RETURNED`` | Interac has initiated a return/reversal. |
+| Action: ``CHARGEBACK`` Status: ``APPROVED``| Customer has initiated a chargeback. |
+| Action: ``REFUND`` Status: ``PENDING`` | Refund request received. |
+| Action: ``REFUND`` Status: ``APPROVED`` | Refund has been approved. |
+| Action: ``REFUND`` Status: ``DECLINED`` | Refund has been declined.
 
 ## Interac Online (Deposit/Payment)
 
-| Action | Description |
+| Action/Status | Description |
 |---|---|
-|   | <b>Initial Combinations:</b> |
-| Action: ``PAYMENT`` | Transaction request has been received, waiting for customer to complete. |
-| Status: ``PENDING`` | 
-|
-|   | <b>Final Combinations:</b> |
-| Action: ``PAYMENT`` | Payment is successful, fulfill product. |
-| Status: ``APPROVED`` |
-|
-| Action: ``PAYMENT`` | Payment has been declined.
-| Status: ``DECLINED`` |
+| <b>Initial Combinations:</b> |
+| Action: ``PAYMENT`` Status: ``PENDING`` | Transaction request has been received, waiting for customer to complete. |
+| <b>Final Combinations:</b> |
+| Action: ``PAYMENT`` Status: ``APPROVED``  | Payment is successful, fulfill product. |
+| Action: ``PAYMENT`` Status: ``DECLINED`` | Payment has been declined.
