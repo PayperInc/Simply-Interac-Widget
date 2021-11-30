@@ -1,0 +1,27 @@
+
+.cache/
+node_modules/
+./node_modules
+/node_modules
+*.log
+
+.history
+node_modules
+.env
+*.env
+
+
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+./build
+/build
+build
+build/

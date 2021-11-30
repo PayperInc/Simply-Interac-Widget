@@ -1,0 +1,57 @@
+body {
+    font-family: "Roboto", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #323232;
+}
+
+.container {
+    margin:auto;
+    margin-top:200px;
+    width:500px;
+}
+
+.row {
+    display: inline-block;
+}
+
+.row-items {
+    width:200px;
+    margin:auto;
+    margin-bottom:20px;
+    float:left;
+}
+
+.btn {
+    padding: 15px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 7px -4px rgba(0,0,0,0.79);
+    margin: auto;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #323232;
+    font-weight: lighter;
+    background-color: white;
+    transition: 2s;
+    float: left;
+}
+
+.btn:hover {
+    background-color: #defffd;
+}
+
+.btn-row {
+    text-align: right;
+    width: 100%;
+}
+
+label {
+
+}
+
+input {
+    height: 30px;
+    border: none;
+    background-color: #defffd;
+    width: 199px;
+    font-size: 1rem;
+}

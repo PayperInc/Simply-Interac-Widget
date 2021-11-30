@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payper Widget (Beta)</title>
+	
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<link rel="stylesheet" href="payper.css">
+
+</head>
+<body>
+	<div class=container>
+
+		<div class="row btn-row">
+			<button class="btn" onclick="sendValues('apidata', build());">
+			Pay with Payper
+			</button>
+		</div>
+
+		<div class=row>
+			<div class=row-items>
+				<label for="firstname">First Name</label>
+			</div>
+			<div class="row-items">
+				<input name="firstname" id="firstname" value="John"/>
+			</div>
+		</div>
+
+		<div class=row>
+			<div class=row-items>
+				<label for="lastname">Last Name</label>
+			</div>
+			<div class="row-items">			
+				<input name="lastname" id="lastname" value="Smith"/>
+			</div>
+		</div>		
+
+		<div class=row>
+			<div class=row-items>
+				<label for="customerEmail">Email</label>		
+			</div>
+			<div class=row>
+				<div class=row-items>	
+					<input name="customerEmail" id="customerEmail" value="test@payper.ca" />
+				</div>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<label for="phone">Phone Number</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="phone" id="phone" value="14165551234"/>
+			</div>
+		</div>	
+
+		<div class=row>
+			<div class=row-items>
+				<label for="address">Address</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="address" id="address" value="123 Main Street West"/>
+			</div>
+		</div>	
+
+
+		<div class=row>
+			<div class=row-items>
+				<label for="city">City</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="city" id="city" value="Toronto"/>
+			</div>
+		</div>
+		
+
+
+		<div class=row>
+			<div class=row-items>
+				<label for="state">State/Province</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="state" id="state" value="Ontario"/>
+			</div>
+		</div>
+
+		<div class=row>
+			<div class=row-items>
+				<label for="country">Country</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="country" id="country" value="CA"/>
+			</div>
+		</div>	
+
+
+		<div class=row>
+			<div class=row-items>
+				<label for="zip_code">Zip/Postal</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="zip_code" id="zip_code" value="M5M 5M5"/>
+			</div>
+		</div>							
+
+
+
+		<div class=row>
+			<div class=row-items>
+				<label for="currency">Currency</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="currency" id="currency" value="CAD" />
+			</div>
+		</div>
+
+
+		<div class=row>
+			<div class=row-items>
+				<label for="name">Item Name</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="name" id="name" value="Deposit" />
+			</div>
+		</div>
+
+
+		<div class=row>
+			<div class=row-items>
+				<label for="unit_price">Unit Price</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="unit_price" id="unit_price"  />
+			</div>
+		</div>
+
+
+		<div class=row>
+			<div class=row-items>
+				<label for="quantity">Quantity</label>
+			</div>
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="quantity" id="quantity"  />
+			</div>
+		</div>
+
+		<div class=row>
+			<div class=row-items>
+				<label for="amount_shipping">Shipping</label>
+			</div>	
+		</div>
+		<div class=row>
+			<div class=row-items>
+				<input name="amount_shipping" id="amount_shipping"  />
+			</div>
+		</div>		
+
+		<div id='payper-widget'></div>
+
+		<script src="./build/index.js" 
+				id="Payper-Script" 
+				data-config="{'values': 'sendValues','config': {'targetElementId': 'payper-widget'}}" >
+				    (function (w, d, s, o, f, js, fjs) {
+				        w['Payper-Widget'] = o; 
+				        w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+				        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+				        js.id = o; 
+				        js.src = f; 
+				        js.async = 1; 
+				        fjs.parentNode.insertBefore(js, fjs);
+				    }
+				    (window, document, 'script', 'sendValues', './build/index.js'));
+				    w1('init', { targetElementId: 'payper-widget' });
+		</script>
+		<script type="text/javascript">
+			function build(){
+				let valJSON = '{'
+					+ '"customerEmail":' + '"' + document.getElementById("customerEmail").value + '"' 
+					+ ',"first_name":' + '"' + document.getElementById("firstname").value + '"' 
+					+ ',"last_name":' + '"' + document.getElementById("lastname").value + '"' 
+					+ ',"address":' + '"' + document.getElementById("address").value + '"' 
+					+ ',"city":' + '"' + document.getElementById("city").value + '"' 
+					+ ',"state":' + '"' + document.getElementById("state").value + '"' 
+					+ ',"country":' + '"' + document.getElementById("country").value + '"' 
+					+ ',"zip_code":' + '"' + document.getElementById("zip_code").value + '"' 
+					+ ',"phone":' + '"' + document.getElementById("phone").value + '"' 
+					+ ',"currency":' + '"' + document.getElementById("currency").value + '"' 
+					+ ',"amount_shipping":' + '"' + document.getElementById("amount_shipping").value + '"' 
+					+ ',"items": [{'
+					+ '"name":' + '"' + document.getElementById("name").value + '"'
+					+ ',"unit_price":' + '"' + document.getElementById("unit_price").value + '"'
+					+ ',"quantity":' + '"' + document.getElementById("quantity").value + '"}]'
+					+ ',"sid_info": ['
+					+ '{"sid":"126","type":"enhanced"},'
+					+ '{"sid":"161","type":"standard"}]'
+					+ ',"udf1":' + '"' + makeid(5) + '"'  
+					+ ',"udf2":' + '"' + makeid(5) + '"'  
+					+ ',"udf3":' + '""'  
+					+ ',"udf4":' + '""'  
+					+ ',"udf5":' + '""'  
+					+ ',"udf6":' + '""'
+					+ ',"rcode":' + '"58B344Cda7cF9C0C7A196a5dC6a8406a"'    
+					+ ',"return_url":' + '"https://payper.netlify.app/index.html"'    
+					+ ',"company_name":' + '"Casumo"'  
+					+ '}';
+					return valJSON;
+			}
+
+			function getTotal(){
+				var quantity = document.getElementById("unit_price").value;
+				var price = document.getElementById("quantity").value;
+				console.log("q ->", quantity, " p -> ", price);
+				total = quantity * price;
+				return total.toFixed(2);
+			}
+
+			function makeid(length) {
+			   var result           = '';
+			   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			   var charactersLength = characters.length;
+			   for ( var i = 0; i < length; i++ ) {
+			      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			   }
+			   return result;
+			}
+
+			function randQuan(){
+				return Math.floor(Math.random() * 10) + 1;
+			}
+
+			function randPrice() {
+				var randomnum = Math.floor(Math.random() * (5000 - 50) + 50) / 100;
+				return randomnum;
+			}
+
+			document.getElementById("quantity").value = randQuan();
+			document.getElementById("unit_price").value = randPrice();
+
+		</script>
+</div>
+	</div>
+</body>
+</html>

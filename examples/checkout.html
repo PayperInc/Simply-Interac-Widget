@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkout Page</title>
+	
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap-select -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+	
+	<style>
+		body {
+			background: #d9e7e8;
+			background: -webkit-linear-gradient(#50A7C2, #B7F8DB);
+			background: linear-gradient(#50A7C2, #B7F8DB); 
+		}
+		
+		#discount, #amount_shipping {
+			max-width: 50%;
+		}
+		
+		.form-inline {
+			max-width: 50%;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div class="container mb-5">
+		<div class="py-5 text-center">
+			<img class="d-block mx-auto mb-4" src="./payper_logo/logo.png" alt="" width="72" height="72">
+			<h2>Checkout page</h2>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-5 order-md-2 mb-4">
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
+					<span class="text-white">Your cart</span>
+					<span class="badge badge-secondary badge-pill" id="itemCount">3</span>
+				</h4>
+				<ul class="list-group mb-3">
+					<li class="list-group-item d-flex justify-content-between lh-condensed">
+						<div>
+							<h6 class="my-0" id="firstItem">Product name</h6>
+							<small class="text-muted" id="firstItemPrice">Brief description</small><br>
+							<small class="text-muted" id="firstItemQuantity">Brief description</small>
+						</div>
+						<span class="text-muted" id="firstItemTotalPrice">$12</span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between lh-condensed">
+						<div>
+							<h6 class="my-0" id="secondItem">Second product</h6>
+							<small class="text-muted" id="secondItemPrice">Brief description</small>
+							<br>
+							<small class="text-muted" id="secondItemQuantity">Brief description</small>
+						</div>
+						<span class="text-muted" id="secondItemTotalPrice">$8</span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between lh-condensed">
+						<div>
+							<h6 class="my-0" id="thirdItem">Third item</h6>
+							<small class="text-muted" id="thirdItemPrice">Brief description</small>
+							<br>
+							<small class="text-muted" id="thirdItemQuantity">Brief description</small>
+						</div>
+						<span class="text-muted" id="thirdItemTotalPrice">$5</span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between bg-light">
+						<div class="d-flex align-items-center text-success">
+							<h6 class="my-0">Discount</h6>
+						</div>
+						<div class="text-success form-inline">
+							<label for="" class="control-label ml-auto mr-1">-$ </label>
+							<input type="text" class="form-control text-right" id="discount" placeholder="" value="" oninput="discountEntered()">
+						</div>
+					</li>
+					<li class="list-group-item d-flex justify-content-between">
+						<div class="d-flex align-items-center">
+							<h6 class="my-0">Shipping</h6>
+						</div>
+						<div class="form-inline">
+							<label for="" class="control-label ml-auto mr-1">$</label>
+							<input type="text" class="form-control text-right" id="amount_shipping" placeholder="" value="">
+						</div>
+					</li>
+					<li class="list-group-item d-flex justify-content-between">
+						<span><strong>Total (USD)</strong></span>
+						<strong id="totalPrice">$30</strong>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-7 order-md-1">
+				<h4 class="mb-3">Billing address</h4>
+				
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">First name</label>
+                            <input type="text" class="form-control" id="firstname" placeholder="John" value="John" required>
+                            
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Last name</label>
+                            <input type="text" class="form-control" id="lastname" placeholder="Smith" value="Smith" required>
+                            
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="customerEmail" placeholder="test@payper.ca" value="test@payper.ca">
+                       
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="123 Main Street West" value="123 Main Street West" required>
+                        
+                    </div>
+
+                    <div class="row">
+						<div class="col-md-4 mb-3">
+                            <label for="city">City</label>
+                            <select class="custom-select d-block w-100" id="city" required>
+                                <option value="">Choose...</option>
+                                <option value="Toronto" selected>Toronto</option>
+								<option value="Hamilton">Hamilton</option>
+                            </select>
+                           
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="state">State</label>
+                            <select class="custom-select d-block w-100" id="state" required>
+                                <option value="">Choose...</option>
+                                <option value="Ontario" selected>Ontario</option>
+                            </select>
+                           
+                        </div>
+						 <div class="col-md-4 mb-3">
+                            <label for="country">Country</label>
+                            <select class="custom-select d-block w-100" id="country" required>
+                                <option value="">Choose...</option>
+                                <option value="CA" selected>Canada</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                  
+					<div class="row">
+						<div class="col-md-4 mb-3">
+                            <label for="zip">Zip</label>
+                            <input type="text" class="form-control" id="zip_code" placeholder="M5M 5M5" value="M5M 5M5" required>
+                           
+                        </div>
+						<div class="col-md-8 mb-3">
+                            <label for="phone">Phone number</label>
+                            <input type="text" class="form-control" id="phone" placeholder="14165551234" value="14165551234" required>
+                           
+                        </div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-4 mb-3">
+                            <label for="currency">Curreny</label>
+                            <select class="custom-select d-block w-100" id="currency" required>
+                                <option value="">Choose...</option>
+                                <option value="USD">USD</option>
+								<option value="CAD" selected>CAD</option>
+                            </select>
+                          
+                        </div>
+					</div>
+					
+                    <hr class="mb-4">
+
+                    <h4 class="mb-3">Payment</h4>
+               
+					<button id="btn-payment" class="btn btn-info" type="button" onclick="sendValues('apidata', build());">Make Payment</button>
+			</div>
+		</div>
+
+		<div id='payper-widget'></div>
+
+		<script src="./build/index.js" 
+				id="Payper-Script" 
+				data-config="{'values': 'sendValues','config': {'targetElementId': 'payper-widget'}}" >
+				    (function (w, d, s, o, f, js, fjs) {
+				        w['Payper-Widget'] = o; 
+				        w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+				        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+				        js.id = o; 
+				        js.src = f; 
+				        js.async = 1; 
+				        fjs.parentNode.insertBefore(js, fjs);
+				    }
+				    (window, document, 'script', 'sendValues', './build/index.js'));
+				    w1('init', { targetElementId: 'payper-widget' });
+		</script>
+		<script type="text/javascript">
+
+			var items = '';
+			
+			window.onload = function() {
+				items = JSON.parse(localStorage.getItem("items"));
+				base_url = localStorage.getItem("base_url");
+				document.getElementById("firstItem").innerHTML = items['first_item']['name'];
+				document.getElementById("secondItem").innerHTML = items['second_item']['name'];
+				document.getElementById("thirdItem").innerHTML =  items['third_item']['name'];
+				document.getElementById("firstItemPrice").innerHTML = 'Unit Price: $' + items['first_item']['price'];
+				document.getElementById("secondItemPrice").innerHTML = 'Unit Price: $' + items['second_item']['price'];
+				document.getElementById("thirdItemPrice").innerHTML = 'Unit Price: $' + items['third_item']['price'];
+				document.getElementById("firstItemQuantity").innerHTML = 'Quantity: ' + items['first_item']['quantity'];
+				document.getElementById("secondItemQuantity").innerHTML = 'Quantity: ' + items['second_item']['quantity'];
+				document.getElementById("thirdItemQuantity").innerHTML = 'Quantity: ' + items['third_item']['quantity'];
+				document.getElementById("firstItemTotalPrice").innerHTML = '$' + items['first_item']['price'] * items['first_item']['quantity'] ;
+				document.getElementById("secondItemTotalPrice").innerHTML = '$' + items['second_item']['price'] * items['second_item']['quantity'];
+				document.getElementById("thirdItemTotalPrice").innerHTML = '$' + items['third_item']['price'] * items['third_item']['quantity'];
+				document.getElementById("itemCount").innerHTML = Object.keys(items).length;
+				document.getElementById("totalPrice").innerHTML = '$' + getTotal();
+			}
+			
+			function build(){
+				let valJSON = '{'
+					+ '"customerEmail":' + '"' + document.getElementById("customerEmail").value + '"' 
+					+ ',"first_name":' + '"' + document.getElementById("firstname").value + '"' 
+					+ ',"last_name":' + '"' + document.getElementById("lastname").value + '"' 
+					+ ',"address":' + '"' + document.getElementById("address").value + '"' 
+					+ ',"city":' + '"' + document.getElementById("city").value + '"' 
+					+ ',"state":' + '"' + document.getElementById("state").value + '"' 
+					+ ',"country":' + '"' + document.getElementById("country").value + '"' 
+					+ ',"zip_code":' + '"' + document.getElementById("zip_code").value + '"' 
+					+ ',"phone":' + '"' + document.getElementById("phone").value + '"' 
+					+ ',"currency":' + '"' + document.getElementById("currency").value + '"' 
+					+ ',"amount_shipping":' + '"' + document.getElementById("amount_shipping").value + '"' 
+					+ ',"items":' + buildItemsJSON()
+					+ ',"sid_info": ['
+					+ '{"sid":"126","type":"enhanced"},'
+					+ '{"sid":"161","type":"standard"}]'
+					+ ',"udf1":' + '"' + makeid(5) + '"'  
+					+ ',"udf2":' + '"' + makeid(5) + '"'  
+					+ ',"udf3":' + '""'  
+					+ ',"udf4":' + '""'  
+					+ ',"udf5":' + '""'  
+					+ ',"udf6":' + '""'
+					+ ',"rcode":' + '"58B344Cda7cF9C0C7A196a5dC6a8406a"'    
+					+ ',"return_url":' + '"' + base_url + 'complete"'    
+					+ ',"company_name":' + '"Payper"'  
+					+ '}';
+					
+					console.log(valJSON);
+					console.log(window.location.href);
+					console.log(base_url);
+					return valJSON;
+			}
+
+			function getTotal(){
+				var total = 0;
+				
+				for(var item in items){
+					total += items[item]['quantity'] * items[item]['price'];
+				}
+				
+				var discount = isNaN(parseFloat(document.getElementById("discount").value))? 0 : document.getElementById("discount").value;
+				total = discount <= total ?  total - discount : 0;
+				
+				return total.toFixed(2);
+			}
+			
+			function discountEntered(){
+				document.getElementById("totalPrice").innerHTML = '$' + getTotal();	
+			}
+			
+			function buildItemsJSON(){
+				var JSON = '[';
+				var filtered_items = _.filter(items, function(i) { return i['quantity'] != 0 && i['price'] != 0; });
+				var keys = Object.keys(filtered_items);
+				var last_item = keys[keys.length-1];
+			
+				for(var item in filtered_items){
+					if(filtered_items[item]['price'] == 0 || filtered_items[item]['quantity'] == 0){
+						continue;
+					}
+					JSON += '{' + '"name":' + '"' + filtered_items[item]['name'] + '"' 
+							+ ',"unit_price":' + '"' + filtered_items[item]['price'] + '"' 
+							+ ',"quantity":' + '"' + filtered_items[item]['quantity'] + '"' ;
+					JSON += item != last_item ? '},' : '}';			
+				}
+				
+				JSON += ']';
+
+				return JSON;
+			}
+			
+			function makeid(length) {
+			   var result           = '';
+			   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			   var charactersLength = characters.length;
+			   for ( var i = 0; i < length; i++ ) {
+			      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			   }
+			   return result;
+			}
+
+		</script>
+
+	</div>
+</body>
+</html>

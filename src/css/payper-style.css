@@ -1,0 +1,569 @@
+
+*,
+*::after,
+*::before {
+box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+/* body {
+	line-height: 1;
+} */
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button {
+  border-style:solid;
+  border-width:1px;
+  padding: 5px 10px;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 15px
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: 14px
+  }
+
+  /* @media screen and (max-width: 800px) {
+    font-size: 13px
+  } */
+
+  @media screen and (max-width: 600px) {
+    font-size: 13px
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px
+  }
+}
+
+body {
+  font-family: "Roboto", BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  transition: all 0.25s linear;
+}
+
+h1{
+  font-size: 3rem;
+  font-weight: 800;
+}
+h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+li {
+  list-style: none;
+}
+
+.pp_header {
+  margin-bottom: 0.7rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.pp_message_text {
+  margin-bottom: .5rem;
+}
+
+.pp_parameters {
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.logo-image {
+  height: 80px;
+  border-radius: 100%;
+  margin-left: -41px;
+  margin-top: 1.5rem;
+  width: 80px;
+}
+
+.sup {
+  margin-top: -8px;
+}
+
+.standard-div {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: .9rem;
+  margin-top: 25px;
+}
+
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  color: #5e79dc;
+}
+
+@keyframes fadeInAnimation {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.StyledBankImageContainer {
+  width: 25rem;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  margin-top: 0;
+  padding: 18px 0 18px 35px;
+  border-bottom: 1px solid lightgray;
+}
+
+.StyledBankImage {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.BoldTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #323232;
+}
+
+.HeadingContainer {
+  width: 20rem;
+  margin: 5px 0 15px 0;
+}
+
+.ModalBodyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 75%;
+  overflow: hidden;
+  color: #323232;
+/* not sure if this is actually used anywhere
+  animation: h4 {
+    margin-bottom: 10px;
+  } */
+}
+
+.MakeChangeBtn {
+  color: #323232;
+  cursor: pointer;
+  font-size: 0.7rem;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing:2px;
+}
+
+.AdjustedEditBtn {
+  position: absolute;
+  right: 20px;
+  text-transform: uppercase;
+  font-size:.7rem;
+  letter-spacing:2px;
+  color: #323232;
+  cursor: pointer;
+}
+
+.SoftHeading {
+  margin: 0;
+  padding: 0;
+  color: #636767;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size:0.8rem;
+  letter-spacing:2px;
+  color: #323232;
+}
+
+/*---Payment Methods---*/
+
+.PaymentMethodsContainer {
+  margin-top: 10px;
+}
+
+
+.PaymentMethodContainer {
+  height: 3.7rem;
+  width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.25rem;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 1px 1px 7px -4px rgba(0, 0, 0, 0.79);
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.PaymentMethodContainer:hover {
+  background: #e6e9e9;
+}
+
+.payment-method-item {
+    display: flex;
+    align-items: center;
+  }
+
+.payment-item-img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+/*---Checkout Container---*/
+.ModalBackdrop {
+  position: fixed;
+  background: white;
+  z-index: 100;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.6;
+}
+
+.ModalContainer {
+  position: fixed;
+  z-index: 200;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes comeDown{
+  0% {transform: translate(0, -50px);}
+  100% {transform: translate(0, 0);}
+}
+
+
+/*actual modal*/
+.StyledModal {
+  position: fixed;
+  width: 24rem;
+  height: 33.5rem;
+  border-radius: 0 75px 0 0;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 49px 12px rgba(38, 38, 38, 0.13);
+  animation: comeDown 0.2s ease-in-out;
+
+  /* height: 450px; */
+  @media screen and (max-width: 450px) {
+    width: 75vw;
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 50rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 55rem;
+  }
+}
+/*header container*/
+.ModalHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 75px;
+  position: relative;
+  top: 0;
+  height: 8.3rem;
+  background: #323232;
+}
+
+.ModalTitle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  margin-top: 2rem;
+  margin-left:30px;
+  color: #fff;
+}
+
+.ModalTitle  p {
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.ModalTitle  h3 {
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+
+.ModalExit {
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ExitContainer {
+  display: flex;
+  width: fit-content;
+  position: absolute;
+  left: 0.8rem;
+  top: 0.7rem;
+  color: #f8f9fa;
+  text-transform: uppercase;
+}
+.ExitContainer p {
+    font-size: 0.8rem;
+    cursor: pointer;
+    letter-spacing:2px;
+}
+
+/*---Finalizing Payment---*/
+.ThankYouContainer {
+  width: 100%;
+  text-align: left;
+  height: 80px;
+  padding: 60px 40px;
+  opacity: 0;
+  animation: fadeInAnimation 1s linear forwards;
+}
+
+.ThankYouContainer  h2 {
+    font-size: 2.1rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.ThankYouContainer  a {
+    color: blue;
+    cursor: pointer;
+}
+
+/*---Thank you---*/
+
+.exit-button {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #323232;
+  font-size: .7rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.exit-position-middle {
+  position:absolute;
+  bottom:145px;
+  left:170px;
+}
+
+.exit-position-bottom {
+  position:absolute;
+  bottom:15px;
+  left:170px;
+}
+
+/*---Bank---*/
+.StyledBank {
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  /* border: 1px solid lightgray; */
+  border-radius: 10px;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 0.75rem;
+  box-shadow: 1px 1px 7px -4px rgba(0, 0, 0, 0.79);
+  width:138.75px;
+  height:60px;
+  opacity: 0;
+  animation: fadeInAnimation 01s linear forwards;
+  animation-delay: calc(var(--order)*70+500);
+}
+/*
+.StyledBank:nth-child(n){
+  animation-delay: .4s;
+} */
+
+.StyledBank:hover {
+    background: #e6e9e9;
+}
+
+.bank-div {
+    display: flex;
+    align-items: center;
+}
+
+.bank-div  img {
+  width: 25px;
+  margin-right: 0.7rem;
+
+@media screen and (max-width: 600px) {
+    margin-right: 1.5rem;
+  }
+}
+
+/*---Bank List---*/
+.Banks {
+  height:100%;
+  width:100%
+}
+
+.BanksSectionContainer {
+  overflow-y:auto;
+  height:80%;
+  scrollbar-width: none;
+}
+
+.BanksSectionContainer::-webkit-scrollbar {
+  display:none;
+}
+
+.BanksSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow:hidden auto;
+  /*Firefox*/
+  scrollbar-width: thin;
+  padding-top:2px;
+  padding-bottom:4px;
+}
+
+.BanksContainerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: stretch;
+  align-items: stretch;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top:0;
+  }
+}
+
+/*---Company Logo---*/
+.logo-container {
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/*---Load Effect---*/
+
+.loader-container {
+  position: fixed;
+  background: white;
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+}
+
+/*---Search Bank---*/
+#standard-basic {
+  width: 24rem;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 0 15px 35px;
+  height: 30px;
+}
+
+.search-section {
+  position: relative;
+  margin: 10px 0 5px 0;
+  height:60px;
+}
+
+.search-label {
+  padding: 0 0 15px 35px;
+}
+
+/*---Declined---*/
+.declined-container {
+  width:80%;
+  margin:auto;
+  margin-top:20px;
+}
+
+.error-message {
+  margin-bottom:20px;
+}
+
+/*---Landing Demo---*/
+.styled-container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.html-checkout-interac img
+{
+  width: 50%;
+  height: 50%;
+}
