@@ -186,7 +186,7 @@ Your payment information will be sent to the Payper Widget via JSON payload.
 |  <b>Final Combinations:</b> |  |
 | Action: ``PAYMENT`` Status: ``APPROVED``| Payment is successful, fulfill product. |
 | Action: ``PAYMENT`` Status:  ``DECLINED``| Payment has been declined. |
- | Action: ``PAYMENT`` Status:  ``EXPIRED``| Payment request has been expired. |
+ | Action: ``PAYMENT`` Status:  ``EXPIRED``| Payment request has expired. |
 
 ## Interac Online (Deposit/Payment)
 
