@@ -180,10 +180,9 @@ Your payment information will be sent to the Payper Widget via JSON payload.
 | Action/Status | Description |
 |---|---|
 | <b>Initial Combinations:</b> |  |
-| Action: ``PENDING``  Status: ``APPROVED``| Transaction request has been received, waiting for customer to complete. |
-| Action: ``PENDING`` Status: ``DECLINED``| Transaction has been declined.|
-| Action: ``PENDING`` Status: ``PENDING`` | Transaction has not been received successfully.|
-| Action: ``PENDING`` Status: ``PAYG_ERROR`` | An error has occurred. | |
+| Action: ``REQUEST``  Status: ``APPROVED``| Transaction request has been received, waiting for customer to complete. |
+| Action: ``REQUEST`` Status: ``DECLINED``| Transaction has been declined.|
+| Action: ``REQUEST`` Status: ``PENDING`` | Transaction request has been received and will be processed.|
 |  <b>Final Combinations:</b> |  |
 | Action: ``PAYMENT`` Status: ``APPROVED``| Payment is successful, fulfill product. |
 | Action: ``PAYMENT`` Status:  ``DECLINED``| Payment has been declined. |
