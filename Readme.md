@@ -186,12 +186,7 @@ Your payment information will be sent to the Payper Widget via JSON payload.
 |  <b>Final Combinations:</b> |  |
 | Action: ``PAYMENT`` Status: ``APPROVED``| Payment is successful, fulfill product. |
 | Action: ``PAYMENT`` Status:  ``DECLINED``| Payment has been declined. |
-|  <b>Follow-up Combinations:</b> |  |
-| ``Action: PAYMENT`` Status: ``RETURNED`` | Interac has initiated a return/reversal. |
-| Action: ``CHARGEBACK`` Status: ``APPROVED``| Customer has initiated a chargeback. |
-| Action: ``REFUND`` Status: ``PENDING`` | Refund request received. |
-| Action: ``REFUND`` Status: ``APPROVED`` | Refund has been approved. |
-| Action: ``REFUND`` Status: ``DECLINED`` | Refund has been declined.
+ | Action: ``PAYMENT`` Status:  ``EXPIRED``| Payment request has been expired. |
 
 ## Interac Online (Deposit/Payment)
 
