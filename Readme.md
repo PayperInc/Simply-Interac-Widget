@@ -115,7 +115,6 @@ Your payment information will be sent to the Payper Widget via JSON payload.
        "sid":"",
        "type":"",
     }],
-    "rcode":"",
     "company_name":"",
     "return_url":"",
     "udf1":"",  
